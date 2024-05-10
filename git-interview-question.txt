@@ -1,0 +1,31 @@
+Git and Git-Hub related interview questions
+--------------------------------------------
+1.What is Git?
+Git is a distributed version control system that tracks changes in source code during software development. It allows multiple developers to collaborate on projects simultaneously.
+
+2.What is GitHub?
+GitHub is a web-based platform that provides hosting for Git repositories. It offers collaboration features such as bug tracking, feature requests, task management, and wikis for every project.
+
+3.What is the difference between Git and GitHub?
+Git is the version control system, while GitHub is a hosting service for Git repositories. Git is used for version control locally, whereas GitHub is used for hosting repositories remotely and collaborating with others.
+
+4.What is a Git repository?
+A Git repository is a storage location where a project's files and revision history are stored. It contains all the files and folders associated with a project, along with metadata about changes to those files over time.
+
+5.What is a commit in Git?
+A commit in Git is a snapshot of changes made to a repository at a specific point in time. It represents a set of changes to one or more files, along with a descriptive message explaining the changes.
+
+6.What is a branch in Git?
+A branch in Git is a parallel version of a repository. It allows developers to work on features or bug fixes in isolation without affecting the main codebase. Branches can be created, merged, and deleted as needed.
+
+7.What is a merge conflict in Git?
+A merge conflict occurs when Git is unable to automatically merge changes from different branches. This typically happens when two branches have made conflicting changes to the same part of a file. Resolving merge conflicts requires manual intervention from the developer.
+
+8.What is a pull request in GitHub?
+A pull request is a GitHub feature that allows developers to propose changes to a repository and request that someone review and merge those changes into the main codebase. It provides a way for collaboration and code review before changes are merged.
+
+9.What is the difference between a fork and a clone in Git?
+Forking creates a copy of a repository on GitHub under your own account, while cloning creates a copy of a repository on your local machine. Forking is typically used when you want to contribute to someone else's project, while cloning is used when you want to work on your own or someone else's project locally.
+
+10.What is Git branching strategy?
+Git branching strategy is a set of rules and practices for managing branches in a repository. It includes guidelines for creating, naming, merging, and deleting branches to facilitate collaboration and streamline development workflows. Common branching strategies include Gitflow, GitHub Flow, and GitLab Flow.
