@@ -269,6 +269,3 @@ Transit Gateway:
 
 AWS Transit Gateway simplifies network connectivity by acting as a central hub that connects multiple VPCs, VPN connections, and Direct Connect gateways. You can attach your VPCs and VPN connections to a Transit Gateway to enable communication between them.
 Use Transit Gateway to streamline network routing and reduce the complexity of managing multiple connections between your on-premises network and AWS.
-
-11.What is the purpose of a VPC route table and how is it used?
-Ans : 
