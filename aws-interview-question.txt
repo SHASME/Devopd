@@ -1,0 +1,274 @@
+AWS interview questions---
+
+EC2 - Related interview questions
+-------------------------------------
+1. What is Amazon EC2?
+Ans: 
+Amazon EC2 (Elastic Compute Cloud) is a web service provided by Amazon Web Services (AWS) that allows users to rent virtual servers (known as instances) on which they can run their own applications. EC2 offers a scalable, secure, and flexible cloud computing environment, enabling users to easily deploy and manage virtual servers to meet their computing needs without the upfront investment and complexity of building and maintaining physical infrastructure.
+
+Key features of Amazon EC2 include:
+
+Scalability: Users can easily scale their computing resources up or down based on demand, allowing them to handle varying workloads efficiently.
+
+Elasticity: EC2 instances can be launched, terminated, and resized dynamically, enabling users to adapt to changing requirements and optimize costs.
+
+Variety of Instance Types: EC2 offers a wide range of instance types optimized for different workloads, including general-purpose, compute-optimized, memory-optimized, storage-optimized, and GPU instances.
+
+Pay-Per-Use Pricing: Users only pay for the compute capacity they consume, with pricing based on instance type, usage hours, and any additional resources (such as storage and data transfer) used.
+
+Security: EC2 provides features such as security groups, network access control lists (ACLs), and encryption options to help users secure their instances and data.
+
+Integration with Other AWS Services: EC2 seamlessly integrates with other AWS services such as Amazon S3, Amazon RDS, Amazon VPC, and AWS IAM, allowing users to build complex and scalable applications using a wide range of cloud services.
+
+High Availability: EC2 offers features such as Auto Scaling and Elastic Load Balancing to ensure high availability and fault tolerance for applications running on multiple instances.
+
+2. How does EC2 differ from traditional server hosting?
+Ans: While AWS EC2 offers powerful, scalable solutions, its cost can be prohibitive, especially for smaller businesses or projects with straightforward requirements. Traditional hosting providers offer competitive, if not superior, pricing for the most common hosting use cases.
+
+3. What are the key components of an EC2 instance?
+
+Ans : The key components of an EC2 instance include:
+
+Instance Type: This determines the virtual hardware specifications of the EC2 instance, such as the amount of CPU, memory, storage, and networking capacity. Instance types range from general-purpose to compute-optimized, memory-optimized, storage-optimized, and more, catering to different workload requirements.
+
+AMI (Amazon Machine Image): An AMI is a template that contains the necessary software configuration (including the operating system and any additional applications) to launch an EC2 instance. Users can choose from pre-configured public AMIs provided by AWS or create custom AMIs tailored to their specific needs.
+
+Instance State: The state of an EC2 instance indicates whether it is running, stopped, terminated, or pending. Running instances are actively serving requests, while stopped instances are powered off but retain their configuration and data.
+
+Security Groups: Security groups act as virtual firewalls that control inbound and outbound traffic to an EC2 instance. Users can define rules to allow or deny specific types of traffic based on IP addresses, protocols, and ports.
+
+Key Pairs: EC2 instances launched from certain AMIs require authentication using SSH (for Linux) or RDP (for Windows). Key pairs are used to securely connect to EC2 instances via SSH or RDP, providing a way to authenticate users without passwords.
+
+Elastic IP Addresses (EIPs): An Elastic IP address is a static IPv4 address that can be associated with an EC2 instance. Unlike regular public IP addresses, EIPs can be remapped to different instances, making them useful for scenarios where instances need to be replaced or migrated without changing their public IP addresses.
+
+Network Interfaces: EC2 instances can have one or more network interfaces attached to them, allowing them to communicate with other resources in the VPC (Virtual Private Cloud) or external networks. Each network interface has its own private IP address and can be assigned public IP addresses and Elastic Network Interfaces (ENIs).
+
+Block Storage: EC2 instances can be attached to Elastic Block Store (EBS) volumes for persistent block storage. EBS volumes can be independently created, attached, and detached from EC2 instances, providing durable and scalable storage options for various use cases.
+
+4. Explain the difference between On-Demand, Reserved, and Spot instances.
+Ans: On-Demand Instances:
+
+On-Demand instances allow users to pay for compute capacity by the hour or second, with no long-term commitments or upfront payments.
+They provide the most flexibility, as users can launch and terminate instances at any time without penalties.
+On-Demand instances are ideal for workloads with unpredictable usage patterns or short-term requirements.
+
+Reserved Instances:
+Reserved instances allow users to reserve EC2 capacity for a fixed term (typically one or three years) in exchange for a significant discount compared to On-Demand pricing.
+Reserved instances provide cost savings for predictable workloads with steady usage over time.
+Users can choose between Standard Reserved Instances (offering a lower upfront cost and a discounted hourly rate) or Convertible Reserved Instances (providing the flexibility to change instance types within the same instance family).
+Spot Instances:
+
+Spot instances allow users to bid for unused EC2 capacity, with prices fluctuating based on supply and demand in the AWS cloud.
+Spot instances can provide significant cost savings compared to On-Demand pricing, often at a fraction of the price.
+However, Spot instances are subject to interruptions, as AWS may reclaim the capacity when the Spot price exceeds the user's bid or when the capacity is needed by On-Demand or Reserved instances.
+Spot instances are suitable for fault-tolerant and flexible workloads, such as batch processing, data analysis, and testing, where interruptions are acceptable.
+
+5. How can you secure your EC2 instances?
+Ans :Use Security Groups: Security groups act as virtual firewalls to control inbound and outbound traffic to EC2 instances. Limit access to only necessary ports and protocols, and restrict traffic to specific IP ranges or sources.
+
+Implement Network ACLs: Network Access Control Lists (ACLs) provide an additional layer of security by controlling traffic at the subnet level. Use ACLs to filter traffic to and from EC2 instances based on IP addresses, protocols, and port numbers.
+
+Enable Encryption: Encrypt data at rest and in transit to protect sensitive information from unauthorized access. Use AWS Key Management Service (KMS) to manage encryption keys and enable encryption for EBS volumes, EFS file systems, and network traffic using SSL/TLS.
+
+Secure SSH/RDP Access: If SSH (for Linux) or RDP (for Windows) access is required, restrict access to authorized users by using key pairs (SSH) or password authentication (RDP). Disable root or administrator login and use IAM roles for instance access if possible.
+
+Monitor Access and Activity: Enable AWS CloudTrail to log API activity and AWS Config to track changes to EC2 instances and configurations. Set up AWS CloudWatch alarms to monitor for suspicious activity, unauthorized access attempts, or resource utilization anomalies.
+
+Update and Patch Regularly: Keep EC2 instances up-to-date with the latest security patches and updates for the operating system, applications, and software components. Use AWS Systems Manager or third-party patch management tools for automated patching.
+
+Enable Multi-Factor Authentication (MFA): Enable MFA for AWS IAM users, especially for users with administrative privileges. Require MFA authentication for accessing AWS Management Console, CLI, and API operations.
+
+Use IAM Roles: Assign IAM roles to EC2 instances to securely access AWS resources without storing access keys or credentials on the instance. Follow the principle of least privilege and grant only necessary permissions to IAM roles and users.
+
+Implement Least Privilege: Follow the principle of least privilege and grant only the minimum permissions required for EC2 instances to perform their intended tasks. Regularly review and audit IAM policies to remove unnecessary permissions.
+
+Backup and Disaster Recovery: Implement backup and disaster recovery strategies to protect data and ensure business continuity. Use Amazon EBS snapshots, Amazon S3 versioning, and cross-region replication for data backup and replication.
+
+What is an Amazon Machine Image (AMI) and how is it used in EC2?
+Ans:An Amazon Machine Image (AMI) is a master image for the creation of virtual servers -- known as EC2 instances -- in the Amazon Web Services (AWS) environment. The machine images are like templates that are configured with an operating system and other software that determine the user's operating environment.
+
+6. How do you scale EC2 instances based on demand?
+Ans: Auto Scaling Groups (ASG):
+
+Auto Scaling Groups automatically adjust the number of EC2 instances in response to changing demand, ensuring that you have the right amount of capacity to handle fluctuations in workload.
+Define scaling policies based on metrics such as CPU utilization, network traffic, or custom metrics using Amazon CloudWatch.
+Configure scaling policies to scale out (add instances) or scale in (remove instances) based on predefined thresholds or target values.
+Scheduled Scaling:
+
+Use scheduled scaling to adjust the number of EC2 instances based on predictable changes in demand, such as daily or weekly patterns.
+Define scheduled scaling actions to increase or decrease the desired capacity of Auto Scaling Groups at specific times, such as during peak hours or maintenance windows.
+Manual Scaling:
+
+Manually adjust the number of EC2 instances in an Auto Scaling Group based on anticipated changes in demand or unexpected spikes in traffic.
+Use the AWS Management Console, AWS CLI, or API to manually change the desired capacity of Auto Scaling Groups.
+Dynamic Scaling Policies:
+
+Implement dynamic scaling policies that automatically adjust the scaling behavior based on real-time metrics and events.
+Use predictive scaling to forecast future demand and proactively adjust the number of EC2 instances to meet predicted load requirements.
+Integrate with Load Balancers:
+
+Combine Auto Scaling Groups with Elastic Load Balancers (ELB) to distribute incoming traffic across multiple EC2 instances and ensure high availability and fault tolerance.
+Configure Auto Scaling Groups to register instances with ELB automatically and distribute traffic evenly across instances.
+Use Spot Instances:
+
+Leverage Spot Instances in Auto Scaling Groups to take advantage of spare EC2 capacity at lower prices.
+Configure Auto Scaling Groups to launch a mix of On-Demand and Spot Instances based on availability and cost considerations.
+Monitor and Adjust:
+
+Continuously monitor key performance metrics, such as CPU utilization, memory usage, and network traffic, to identify trends and patterns in workload.
+Adjust scaling policies and thresholds based on real-time feedback and performance analysis to optimize resource utilization and cost efficiency.
+
+
+7. What is an EC2 instance type and how do you choose the appropriate type for your workload?
+Ans : Amazon EC2 lets you provision various instance types with different CPU, memory, networking, and disk combinations. You can easily launch new instances and run tests simultaneously. You should measure the performance of your applications to validate their architecture and identify the best-suited instance types.
+
+What is an Elastic IP address and when would you use it?
+Ans : An Elastic IP address is a static, public IPv4 address designed for dynamic cloud computing. You can associate an Elastic IP address with any instance or network interface in any VPC in your account.
+How do you monitor the performance of EC2 instances?
+
+8. What is Auto Scaling and how does it work with EC2?
+Ans : Amazon EC2 Auto Scaling helps you maintain application availability and lets you automatically add or remove EC2 instances using scaling policies that you define. Dynamic or predictive scaling policies let you add or remove EC2 instance capacity to service established or real-time demand patterns.
+
+9. Explain the significance of instance tenancy in EC2.
+Ans : If the Tenancy attribute value is set to dedicated, the selected EC2 instance is running on Single-Tenant Hardware (physically isolated at the host hardware level).
+
+10. How does EC2 work with other AWS services like S3, RDS, and VPC?
+Ans:Amazon S3 (Simple Storage Service):
+
+EC2 instances can interact with Amazon S3 to store and retrieve data, such as application files, media assets, backups, and logs.
+EC2 instances can use the AWS SDK or CLI to upload, download, and manage objects in S3 buckets directly.
+S3 can serve as a durable and scalable storage solution for static website hosting, content delivery, and data archiving, with EC2 instances serving dynamic content or processing requests.
+Amazon RDS (Relational Database Service):
+
+EC2 instances can connect to Amazon RDS to access managed relational databases, such as MySQL, PostgreSQL, Oracle, SQL Server, and Amazon Aurora.
+EC2 instances can use RDS as the backend database for applications, leveraging features such as automated backups, replication, scaling, and high availability.
+RDS provides a managed database service, allowing developers to focus on application development without worrying about database administration tasks.
+Amazon VPC (Virtual Private Cloud):
+
+EC2 instances can be deployed within Amazon VPC, which provides isolated networking resources, including private IP addresses, subnets, route tables, and security groups.
+VPC allows users to create a logically isolated section of the AWS cloud where they can launch EC2 instances in a virtual network environment with granular control over network configuration and security.
+EC2 instances within the same VPC can communicate with each other over private IP addresses, and users can establish VPN connections or use AWS Direct Connect to connect their VPC to on-premises networks.
+Elastic Load Balancing (ELB):
+
+EC2 instances can be fronted by Elastic Load Balancers (ELB), which automatically distribute incoming traffic across multiple EC2 instances to ensure high availability, fault tolerance, and scalability.
+ELB integrates seamlessly with EC2 and automatically scales its capacity based on demand, distributing traffic evenly across healthy instances.
+AWS IAM (Identity and Access Management):
+
+EC2 instances can leverage AWS Identity and Access Management (IAM) to securely authenticate and authorize access to AWS resources, including S3 buckets, RDS databases, and other AWS services.
+IAM allows users to create fine-grained access policies, roles, and permissions to control who can access which resources and actions within their AWS environment.
+
+
+11.What is the difference between user data and metadata in EC2?
+Ans : Instance metadata is data use to configure or manage the running instance. for example, host name, events, and security groups. User Data specified by the user, for example, you added a new bucked, its unique bucked name will be part of user data. Userdata - Used for bootstrapping.
+
+12. How do you troubleshoot common issues with EC2 instances?
+Check Instance Status:
+
+Start by checking the status of the EC2 instance in the AWS Management Console or via CLI commands. Make sure the instance is running and reachable.
+Review System Logs:
+
+Access the system logs of the instance to look for any error messages or warnings. You can check system logs such as /var/log/messages, /var/log/syslog, or application-specific logs.
+Check Instance Health:
+
+Use AWS CloudWatch to monitor the health and performance metrics of the EC2 instance. Look for any spikes in CPU utilization, memory usage, or network traffic that could indicate a problem.
+Network Connectivity:
+
+Verify that the EC2 instance has proper network connectivity. Check security group settings, network ACLs, and routing tables to ensure that traffic is allowed to and from the instance.
+Security Groups and Firewall:
+
+Review the security group settings associated with the EC2 instance to ensure that the necessary ports are open for inbound and outbound traffic. Make adjustments if needed.
+Disk Space:
+
+Check the disk space usage on the instance's root volume and any additional volumes attached to it. If the disk space is full or nearing capacity, it can cause performance issues or prevent applications from functioning properly.
+Instance Type:
+
+Ensure that the EC2 instance type and specifications (CPU, memory, storage) are appropriate for the workload. If the instance is under-provisioned, it may struggle to handle the workload efficiently.
+Reboot the Instance:
+
+Sometimes, a simple reboot of the EC2 instance can resolve certain issues by resetting the instance's state and clearing any temporary issues.
+Update Software and Drivers:
+
+Ensure that the operating system, software applications, and device drivers on the instance are up-to-date with the latest patches and updates.
+Review AWS Service Status:
+
+Check the AWS Service Health Dashboard to see if there are any ongoing issues or outages affecting the AWS region where your EC2 instance is hosted.
+
+
+VPC - Related interview questions
+-------------------------------------
+1. What is Amazon VPC?
+Ans : Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define.
+
+2.Why would you use Amazon VPC?
+Ans : Amazon Virtual Private Cloud (Amazon VPC) gives you full control over your virtual networking environment, including resource placement, connectivity, and security.
+
+3.What are the main components of Amazon VPC?
+Ans:VPC: The Virtual Private Cloud itself is the main component, which serves as a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network environment that you define.
+
+Subnets: Subnets are subdivisions of a VPC's IP address range that allow you to group resources based on their accessibility and availability. Subnets are associated with specific availability zones (AZs) within a region and can be public or private.
+
+Internet Gateway (IGW): An Internet Gateway is a horizontally scaled, redundant, and highly available gateway that allows communication between instances within a VPC and the internet. It enables instances with public IP addresses to access the internet and receive inbound traffic from the internet.
+
+NAT Gateway/NAT Instance: Network Address Translation (NAT) Gateways or NAT Instances allow instances in private subnets to initiate outbound traffic to the internet while preventing inbound traffic from reaching those instances. They enable instances without public IP addresses to access resources outside the VPC.
+
+Route Tables: Route Tables determine where network traffic is directed within a VPC. Each subnet is associated with a route table, which contains rules (routes) that specify the destination of traffic. Route tables control traffic between subnets within the VPC and traffic destined for the internet or other VPCs.
+
+Security Groups: Security Groups act as virtual firewalls that control inbound and outbound traffic to instances within a VPC. They define rules (allow/deny) that govern traffic based on protocols, ports, and IP addresses. Security Groups are associated with instances and can be modified at any time.
+
+Network Access Control Lists (NACLs): NACLs are stateless packet filters that control traffic at the subnet level. They provide an additional layer of security by allowing or denying traffic based on IP addresses, protocols, and port numbers. NACLs are associated with subnets and evaluate traffic in both directions.
+
+Peering Connections: VPC Peering Connections allow communication between VPCs within the same AWS region. They enable instances in different VPCs to communicate with each other using private IP addresses as if they were on the same network.
+
+VPC Endpoints: VPC Endpoints enable instances within a VPC to securely access AWS services (such as S3, DynamoDB, and Kinesis) without requiring internet gateway or NAT gateway. They provide private connectivity to AWS services and help to reduce data transfer costs.
+
+4.Explain the concept of CIDR notation and how it is used in VPC.
+Ans: 
+CIDR (Classless Inter-Domain Routing) notation is a method used to represent IP address ranges and subnet masks in a concise and standardized format. It allows network administrators to specify a range of IP addresses using a base IP address and a prefix length, which indicates the number of significant bits in the subnet mask.
+
+5.What is a subnet in Amazon VPC and how does it differ from a traditional network subnet?
+Ans: A subnet is a range of IP addresses in your VPC. You launch AWS resources, such as Amazon EC2 instances, into your subnets. You can connect a subnet to the internet, other VPCs, and your own data centers, and route traffic to and from your subnets using route tables.
+
+6.What is a VPC peering connection and how does it work?
+Ans: A VPC peering connection is a networking connection between two VPCs that enables routing using each VPC's private IP addresses as if they were in the same network. VPC peering connections can be created between your own VPCs or with a VPC in another AWS account. VPC peering also supports inter-region peering.
+
+7.What is a VPC endpoint and when would you use it?
+Ans: A VPC endpoint enables customers to privately connect to supported AWS services and VPC endpoint services powered by AWS PrivateLink. Amazon VPC instances do not require public IP addresses to communicate with resources of the service. Traffic between an Amazon VPC and a service does not leave the Amazon network.
+
+8.How do you secure your Amazon VPC?
+Ans : When you add subnets to your VPC to host your application, create them in multiple Availability Zones. ...
+Use security groups to control traffic to EC2 instances in your subnets. ...
+Use network ACLs to control inbound and outbound traffic at the subnet level.
+Network Security Groups (NSGs)
+Network Access Control Lists (NACLs)
+Internet Gateway (IGW)
+NAT Gateway or NAT Instance
+VPC Endpoints
+Encryption
+Logging and Monitoring
+IAM Roles and Policies
+Regular Security Audits and Reviews
+
+9.What is the difference between a public subnet and a private subnet in Amazon VPC?
+Ans : Public subnet – The subnet has a direct route to an internet gateway. Resources in a public subnet can access the public internet. 
+Private subnet – The subnet does not have a direct route to an internet gateway. Resources in a private subnet require a NAT device to access the public internet.
+
+10. How do you connect your Amazon VPC to your on-premises network?
+Ans : AWS Direct Connect:
+
+AWS Direct Connect establishes a dedicated network connection between your on-premises data center and AWS, bypassing the public internet. You can provision a dedicated connection (1Gbps or 10Gbps) with a Direct Connect partner or through a Direct Connect location.
+Once the connection is established, you can create virtual interfaces (VIFs) to connect your VPC to your on-premises network. You can configure private VIFs for access to specific VPCs and public VIFs for access to AWS services over a public IP address.
+VPN Connection:
+
+You can create a VPN (Virtual Private Network) connection between your on-premises network and your VPC using Amazon Virtual Private Gateway and a compatible VPN device or software VPN appliance.
+Configure a VPN connection on both the AWS side (using Amazon Virtual Private Gateway) and the on-premises side (using a VPN appliance or software VPN client). The VPN connection encrypts traffic between the two networks and provides secure communication over the internet.
+AWS VPN CloudHub:
+
+AWS VPN CloudHub allows you to establish multiple VPN connections between your on-premises network and multiple VPCs in different AWS regions. This enables you to connect distributed on-premises networks to multiple VPCs using a single VPN connection.
+Configure a hub-and-spoke VPN topology with a central VPN gateway (Virtual Private Gateway) in each VPC and connect them to a common hub (your on-premises network) using VPN connections.
+Transit Gateway:
+
+AWS Transit Gateway simplifies network connectivity by acting as a central hub that connects multiple VPCs, VPN connections, and Direct Connect gateways. You can attach your VPCs and VPN connections to a Transit Gateway to enable communication between them.
+Use Transit Gateway to streamline network routing and reduce the complexity of managing multiple connections between your on-premises network and AWS.
+
+11.What is the purpose of a VPC route table and how is it used?
+Ans : 
