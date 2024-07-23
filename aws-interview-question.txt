@@ -3,7 +3,6 @@ AWS interview questions---
 EC2 - Related interview questions
 ---------------------------------
 1. What is Amazon EC2?
-Ans: 
 Amazon EC2 (Elastic Compute Cloud) is a web service provided by Amazon Web Services (AWS) that allows users to rent virtual servers (known as instances) on which they can run their own applications. EC2 offers a scalable, secure, and flexible cloud computing environment, enabling users to easily deploy and manage virtual servers to meet their computing needs without the upfront investment and complexity of building and maintaining physical infrastructure.
 
 Key features of Amazon EC2 include:
